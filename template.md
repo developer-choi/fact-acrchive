@@ -1,6 +1,6 @@
 # Questions
-- 영어 질문1 [예: What's the DOM?](#스크롤 갈 수 있는 링크)
-- 영어 질문2 [예: What's the Network?](#스크롤 갈 수 있는 링크)
+- [영어 질문1 (예: What's the DOM?)](#스크롤-갈-수-있는-링크)
+- [영어 질문2 (예: What's the Network?)](#스크롤-갈-수-있는-링크)
 
 # Answers
 ## 영어 질문1 (예: What's the DOM?)
