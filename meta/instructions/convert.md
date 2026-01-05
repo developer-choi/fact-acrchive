@@ -2,6 +2,156 @@
 
 구글 문서 등에 작성된 필기를 AI가 표준 양식에 맞춰 마크다운으로 변환하는 가이드입니다.
 
+---
+
+## 원본 문서 작성 패턴 이해
+
+사용자의 구글 문서는 다음과 같은 패턴으로 작성되어 있습니다:
+
+### 텍스트
+- **영어**: 공식 문서에서 인용한 원문 (출처 있음)
+- **한글**: 사용자의 개인적인 해석 및 보충 설명 (뇌피셜)
+
+### 이미지
+1. **Gemini 답변 캡처**: AI(Gemini)가 설명한 내용의 스크린샷
+2. **공식 문서 캡처**: 공식 문서의 다이어그램, 표, 스크린샷
+
+### 링크
+- 주로 위키피디아, 공식 문서 등으로 연결되는 하이퍼링크
+
+---
+
+## 변환 방식: PDF + MD 병행
+
+### 권장 워크플로우
+
+```
+[사용자가 구글 문서를 PDF, MD로 export] ← 이미지 + 링크 모두 보존
+    ↓
+[AI가 MD 초안 생성] ← 텍스트/이미지 추출, 템플릿 구조화
+    ↓
+[사용자가 PDF 보면서 링크 URL 보완]
+    ↓
+[완성된 MD]
+```
+
+---
+
+## 템플릿 매핑 규칙
+
+### 1. Frontmatter (tags)
+- [공식 태그 목록](../tags.md) 참고
+- 최소 1개, 최대 4개 선택
+- 우선순위: 기술명 > 카테고리 > 특성
+
+### 2. Questions 섹션
+- 원본에서 질문 형태로 정리된 내용 추출
+- 질문이 명시되지 않았다면, **면접 질문 형태**로 생성
+  - 예: "React의 렌더링 과정" → "React의 렌더링은 어떤 단계로 이루어지는가?"
+
+### 3. Keywords
+- 영어로 작성된 핵심 용어 2-3개 추출
+- 원본에 별도로 표시되어 있으면 그대로 사용
+
+### 4. Official Answer
+- **영어 텍스트** → 이 섹션의 본문으로 매핑
+- 공식 문서 원문 또는 객관적 사실
+- 출처가 명확해야 함
+
+**인용 블록 (Official Answer 내부):**
+- `> AI Annotation`: **Gemini 답변 캡처 이미지**의 텍스트를 여기에 옮김
+- `> User Annotation`: **한글로 작성된 보충 설명** 중 부연 설명 성격인 것
+
+예시:
+```markdown
+### Official Answer
+A network is a group of communicating computers...
+
+> AI Annotation: 네트워크의 3요소는 Node, Link, Protocol입니다.
+> User Annotation: 여기서 말하는 Protocol이 그 HTTPS 같은거 말하는거임
+```
+
+### 5. Reference
+- 공식 문서 URL 또는 위키피디아 링크
+- PDF에서 링크 클릭해서 실제 URL 확인 필요
+- 링크 추출 안 되면 `URL_UNKNOWN` 표시 후 수동 보완
+
+---
+
+## 이미지 처리
+
+### Case 1: Gemini 답변 캡처
+Official Answer 섹션 내부에 인용 블록으로 추가:
+```markdown
+### Official Answer
+[공식 문서 원문]
+
+> AI Annotation: [Gemini 캡처 이미지 내 텍스트를 여기에 옮김]
+```
+
+### Case 2: 공식 문서 캡처 (다이어그램, 표)
+- 이미지가 핵심 정보를 담고 있으면 텍스트로 변환
+- 다이어그램은 구조를 텍스트로 설명
+
+### Case 3: Getty Images 등 외부 이미지
+- 저작권 주의
+- 가능하면 텍스트 설명으로 대체
+- 원본 이미지 출처를 Reference에 명시
+
+---
+
+## 링크 처리
+
+### 상황별 대처
+
+#### 1. URL이 텍스트로 보이는 경우
+```markdown
+https://react.dev/learn
+```
+→ 그대로 복사 또는 `[설명](URL)` 형태로
+
+#### 2. 하이퍼링크 텍스트인 경우
+PDF 읽기만으로는 URL을 알 수 없음
+```markdown
+- [Domain Name Service](URL_UNKNOWN)
+```
+
+---
+
+## 변환 프로세스
+
+### Step 1. 사전 검증
+- [ ] 원본이 **사실(Fact)**인지 확인 (의견/감상은 제외)
+- [ ] 출처가 명확한지 확인 (공식 문서, 신뢰할 수 있는 글)
+- [ ] 회사 특정 정보는 제외 (일반화된 지식만)
+
+### Step 2. PDF 읽기
+- [ ] 텍스트 추출 (영어/한글 분류)
+- [ ] 이미지 내용 파악 (Gemini 캡처 vs 공식 문서)
+- [ ] 링크 텍스트 확인 (URL은 별도 확인 필요)
+
+### Step 3. 템플릿 매핑
+- [ ] Questions 추출/생성
+- [ ] Keywords 추출
+- [ ] 영어 → Official Answer 본문
+- [ ] Gemini 캡처 → `> AI Annotation`
+- [ ] 한글 보충 설명 → `> User Annotation`
+- [ ] 공식 문서 다이어그램 → 텍스트 설명으로 변환
+
+### Step 4. 태그 선정
+- [ ] [공식 태그](../tags.md)에서 선택
+- [ ] 새 태그 필요 시 tags.md에 먼저 추가 제안
+
+### Step 5. 파일 저장 위치 결정
+- [ ] [폴더 구조도](../folder-blueprint.md) 참고
+- [ ] 예: React Hooks → `knowledge/frontend/react/core/hooks.md`
+
+### Step 6. 링크 보완 (사용자 역할)
+- [ ] MD 파일의 `URL_UNKNOWN`을 실제 URL로 교체
+
+---
+
 ## 참고 자료
 - [표준 양식](../template.md)
 - [공식 태그](../tags.md)
+- [폴더 구조도](../folder-blueprint.md)
