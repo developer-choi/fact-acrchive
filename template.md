@@ -14,9 +14,7 @@ Core Keyword 1, Core Keyword 2
 ### Official Answer
 Official document text or objective fact (English preferred).
 > AI Annotation
-
-### My Interpretation
-(Optional) Key takeaways or simplified explanation in Korean.
+> User Annotation
 
 ### Reference
 - [Official Doc Title](URL)
