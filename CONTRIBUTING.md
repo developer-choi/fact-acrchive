@@ -5,4 +5,5 @@
 
 - **문서 작성**: [외부 문서 변환 가이드](meta/instructions/convert.md)
 - **문서 관리**: [문서 정리 가이드](meta/instructions/organize.md)
+- **질문 관리**: [질문 스캐폴딩 가이드](meta/instructions/scaffold.md)
 - **품질 관리**: [양식 검사 가이드](meta/instructions/validate.md)
