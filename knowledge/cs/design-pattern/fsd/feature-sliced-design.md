@@ -85,6 +85,8 @@ Stability, Refactoring, Isolation
 ### Official Answer
 A module on one layer cannot use other modules on the same layer, or the layers above.
 
+The key difference of Feature-Sliced Design from an unregulated code structure is that pages cannot reference each other.
+
 This allows you to make isolated modifications without unforeseen consequences to the rest of the app.
 
 > AI Annotation:
