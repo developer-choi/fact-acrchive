@@ -86,7 +86,10 @@ Stability, Refactoring, Isolation
 A module on one layer cannot use other modules on the same layer, or the layers above.
 
 This allows you to make isolated modifications without unforeseen consequences to the rest of the app.
-// TODO 여기에 AI Annotation으로 예제. 이거뿐만아니라 전체적으로 예제가 필요해보이는거 찾아서 넣기
+
+> AI Annotation:
+> - ❌ **Bad (Layer Violation)**: `entities/user` 슬라이스에서 상위 계층인 `features/auth`의 함수를 가져다 쓰는 경우. (하위 계층이 상위 계층을 알게 되면 순환 참조와 의존성 지옥이 시작됨)
+> - ✅ **Good (Layer Flow)**: `pages/profile` -> `features/update-password` -> `entities/user` 순서로 호출. 의존성이 위에서 아래로만 흐르므로 각 계층을 독립적으로 테스트하고 교체하기 쉬움.
 
 ### Reference
 https://feature-sliced.design/docs/get-started/overview
