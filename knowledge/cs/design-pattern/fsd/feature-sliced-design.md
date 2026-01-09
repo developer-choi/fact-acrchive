@@ -10,7 +10,7 @@ tags: [concept, best-practice]
   - [[TODO] What is the key difference between 'App' and 'Pages' in FSD?](#todo-what-is-the-key-difference-between-app-and-pages-in-fsd)
 
 ## 의존성 규칙
-- [[TODO] Why is the unidirectional dependency rule important, and what happens if we violate it?](#todo-why-is-the-unidirectional-dependency-rule-important-and-what-happens-if-we-violate-it)
+- [Why is the unidirectional dependency rule important, and what happens if we violate it?](#todo-why-is-the-unidirectional-dependency-rule-important-and-what-happens-if-we-violate-it)
 - [[TODO] What is the role of the 'Public API' (index.ts) in an FSD slice?](#todo-what-is-the-role-of-the-public-api-indexts-in-an-fsd-slice)
 
 ## 실무 적용
@@ -78,12 +78,18 @@ Reusable functionality, especially when it's detached from the specifics of the 
 
 ---
 
-## [TODO] Why is the unidirectional dependency rule important, and what happens if we violate it?
+## Why is the unidirectional dependency rule important, and what happens if we violate it?
 ### Keywords
+Stability, Refactoring, Isolation
 
 ### Official Answer
+A module on one layer cannot use other modules on the same layer, or the layers above.
+
+This allows you to make isolated modifications without unforeseen consequences to the rest of the app.
+// TODO 여기에 AI Annotation으로 예제. 이거뿐만아니라 전체적으로 예제가 필요해보이는거 찾아서 넣기
 
 ### Reference
+https://feature-sliced.design/docs/get-started/overview
 
 ---
 
