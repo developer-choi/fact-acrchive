@@ -8,6 +8,16 @@ tags: [fsd, architecture, layers, responsibility]
   - [[TODO] What is the key difference between 'App' and 'Pages' in FSD?](#todo-what-is-the-key-difference-between-app-and-pages-in-fsd)
 - [What are segments in FSD, and what is the role of each one?](#what-are-segments-in-fsd-and-what-is-the-role-of-each-one)
 
+# What is the key difference between 'Entities' and 'Features' in FSD? 답변
+### Official Answer
+An entity is a real-life concept that your app is working with. A feature is an interaction that provides real-life value to your app’s users, the thing people want to do with your entities.
+
+### 내 해석)
+
+엔티티 = 명사, 개념, 데이터 입니다. 그래서 데이터 타입 / 그 타입을 가공하는 유틸 / 그 데이터를 가져오기 위한 GET API를 호출하는 함수 / 그 데이터를 보여주기만 하는 컴포넌트 같은 코드들이 엔티티 레이어에 옵니다.
+
+피쳐 = 동사, 액션, 기능입니다. 그래서 기능이 들어간 컴포넌트 / hooks / GET이 아닌 API 호출함수들이 feature 레이어에 옵니다.
+
 ---
 
 # Answers
@@ -28,7 +38,7 @@ Full pages or large parts of a page in nested routing.
 Large self-contained chunks of functionality or UI, usually delivering an entire use case.
 
 #### Features
-Reused implementations of entire product features, i.e. actions that bring business value to the user.
+actions that bring business value to the user.
 
 #### Entities
 Business entities that the project works with, like user or product.

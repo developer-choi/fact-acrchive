@@ -101,6 +101,11 @@ A network is a group of communicating computers...
 - PDF에서 링크 클릭해서 실제 URL 확인 필요
 - 링크 추출 안 되면 `URL_UNKNOWN` 표시 후 수동 보완
 
+**문장 단위 줄바꿈 (Semantic Line Breaks)**:
+- **한 문장이 끝날 때마다 반드시 줄바꿈(Enter)**을 합니다.
+- 문장이 길어지더라도 온점(`.`)이나 물음표(`?`) 등으로 문장이 종료되면 줄을 바꿉니다.
+- **이유**: Git 등 버전 관리 시스템에서 Diff(변경 내역)를 문장 단위로 깔끔하게 확인하기 위함입니다.
+
 #### 3-2. 이미지 처리
 
 **Case 1: Gemini 답변 캡처**
