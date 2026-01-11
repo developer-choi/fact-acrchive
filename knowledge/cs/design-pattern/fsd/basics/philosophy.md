@@ -8,7 +8,6 @@ tags: [fsd, concept, slice, cohesion, coupling]
   - [What is cohesion, and what are some best practices to increase it?](#what-is-cohesion-and-what-are-some-best-practices-to-increase-it)
   - [What is coupling, and how can we effectively decrease it in our architecture?](#what-is-coupling-and-how-can-we-effectively-decrease-it-in-our-architecture)
 - [Why do the 'App' and 'Shared' layers skip the slice level, while other layers are required to have them?](#why-do-the-app-and-shared-layers-skip-the-slice-level-while-other-layers-are-required-to-have-them)
-- [Then, how should we handle it when two slices need to share the same logic?](#then-how-should-we-handle-it-when-two-slices-need-to-share-the-same-logic)
 - [[TODO] What’s the domain?](#todo-whats-the-domain)
 
 ---
@@ -101,22 +100,6 @@ Slice, Global, Domain
 > AI Annotation: 앱 전체에 걸쳐 쓰이거나, 비즈니스 색깔이 전혀 없는 전역적인(Global) 성격을 가집니다. 여기에 슬라이스를 만들면 오히려 구조가 너무 파편화되어 찾기가 더 힘들어집니다. (예: `shared/button/ui` 보다 `shared/ui/button`이 관리하기 훨씬 편함)
 >
 > 나머지 레이어는 비즈니스 로직을 담고있기 때문에, 도메인 기준으로 한번 나눠야합니다.
-
-### Reference
-- https://feature-sliced.design/docs/get-started/overview
-
----
-
-## Then, how should we handle it when two slices need to share the same logic?
-
-### Keywords
-Shared Logic, Composition
-
-### Official Answer
-> AI Annotation:
-> 1. **Shared 레이어로 내리기**: 만약 공유하려는 로직이 특정 비즈니스와 무관한 순수 유틸리티라면 Shared 레이어로 이동시킵니다.
-> 2. **하위 레이어(Entities)로 내리기**: 두 Features가 동일한 데이터 모델을 공유한다면, 그 로직을 Entities 레이어의 관련 슬라이스로 옮깁니다.
-> 3. **상위 레이어(Widgets/Pages)에서 조합**: 두 슬라이스를 직접 연결하지 말고, 상위 계층인 Widgets나 Pages에서 두 슬라이스를 각각 가져와서 로직을 조립(Composition)합니다.
 
 ### Reference
 - https://feature-sliced.design/docs/get-started/overview
