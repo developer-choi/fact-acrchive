@@ -3,7 +3,7 @@ tags: [fsd, architecture, layers, responsibility]
 ---
 
 # Questions
-- [Could you explain the seven layers of FSD and the specific responsibility of each layer?](#could-you-explain-the-seven-layers-of-fsd-and-the-specific-responsibility-of-each-layer)
+- [What is the purpose of layers in FSD, and what is the responsibility of each layer?](#what-is-the-purpose-of-layers-in-fsd-and-what-is-the-responsibility-of-each-layer)
   - [What is the key difference between 'Entities' and 'Features' in FSD?](#what-is-the-key-difference-between-entities-and-features-in-fsd)
   - [[TODO] What is the key difference between 'App' and 'Pages' in FSD?](#todo-what-is-the-key-difference-between-app-and-pages-in-fsd)
 - [What are segments in FSD, and what is the role of each one?](#what-are-segments-in-fsd-and-what-is-the-role-of-each-one)
@@ -12,12 +12,14 @@ tags: [fsd, architecture, layers, responsibility]
 
 # Answers
 
-## Could you explain the seven layers of FSD and the specific responsibility of each layer?
+## What is the purpose of layers in FSD, and what is the responsibility of each layer?
 
 ### Keywords
-FSD, Layers, Responsibility
+FSD, Layers, Responsibility, Dependency
 
 ### Official Answer
+Their purpose is to separate code based on how much responsibility it needs and how many other modules in the app it depends on. Every layer carries special semantic meaning to help you determine how much responsibility you should allocate to your code.
+
 #### App
 Everything that makes the app run — routing, entrypoints, global styles, providers.
 
