@@ -140,14 +140,22 @@ For example, components, hooks, and types are bad segment names because they are
 
 ## What is the role of the Public API in an FSD slice, and how does it support refactoring?
 ### Official Answer
+A public API is a contract between a group of modules, like a slice, and the code that uses it.
+It also acts as a gate, only allowing access to certain objects, and only through that public API.
+In practice, it's usually implemented as an index file with re-exports:
+
 In the context of Feature-Sliced Design, the term public API refers to a slice or segment declaring what can be imported from it by other modules in the project.
 
 For example, in JavaScript that can be an index.js file re-exporting objects from other files in the slice.
 
 This enables freedom in refactoring code inside a slice as long as the contract with the outside world (i.e. the public API) stays the same.
 
+The rest of the application must be protected from structural changes to the slice, like a refactoring.
+Only the necessary parts of the slice should be exposed.
+
 > 내 해석
 > 슬라이스나 세그먼트에서, 외부에 공개할 모듈만 따로 선택하기 위한 방법입니다.
 
 ### Reference
 - https://feature-sliced.design/docs/get-started/tutorial
+- https://feature-sliced.design/docs/reference/public-api
