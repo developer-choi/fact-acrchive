@@ -8,6 +8,7 @@ tags: [fsd, architecture, layers, responsibility]
   - [What is the key difference between 'Entities' and 'Features' in FSD?](#what-is-the-key-difference-between-entities-and-features-in-fsd)
   - [[TODO] What is the key difference between 'App' and 'Pages' in FSD?](#todo-what-is-the-key-difference-between-app-and-pages-in-fsd)
 - [What are segments in FSD, and what is the role of each one?](#what-are-segments-in-fsd-and-what-is-the-role-of-each-one)
+- [What is the role of the Public API in an FSD slice, and how does it support refactoring?](#what-is-the-role-of-the-public-api-in-an-fsd-slice-and-how-does-it-support-refactoring)
 
 ---
 
@@ -134,3 +135,19 @@ For example, components, hooks, and types are bad segment names because they are
 > - Slice 내부에서 공통적으로 사용되는 유틸리티 함수나 설정 코드 등을 모아두는 곳입니다.
 
 - **config**: configuration files and feature flags. / for feature flags, environment variables and other forms of configuration
+
+---
+
+## What is the role of the Public API in an FSD slice, and how does it support refactoring?
+### Official Answer
+In the context of Feature-Sliced Design, the term public API refers to a slice or segment declaring what can be imported from it by other modules in the project.
+
+For example, in JavaScript that can be an index.js file re-exporting objects from other files in the slice.
+
+This enables freedom in refactoring code inside a slice as long as the contract with the outside world (i.e. the public API) stays the same.
+
+> 내 해석
+> 슬라이스나 세그먼트에서, 외부에 공개할 모듈만 따로 선택하기 위한 방법입니다.
+
+### Reference
+- https://feature-sliced.design/docs/get-started/tutorial
