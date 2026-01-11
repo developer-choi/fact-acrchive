@@ -3,33 +3,18 @@ tags: [fsd, concept, slice, cohesion, coupling]
 ---
 
 # Questions
-- [Why do the 'App' and 'Shared' layers skip the slice level, while other layers are required to have them?](#why-do-the-app-and-shared-layers-skip-the-slice-level-while-other-layers-are-required-to-have-them)
 - [What is the slice?](#what-is-the-slice)
   - [Why should we divide a layer into multiple slices?](#why-should-we-divide-a-layer-into-multiple-slices)
+  - [Why do the 'App' and 'Shared' layers skip the slice level, while other layers are required to have them?](#why-do-the-app-and-shared-layers-skip-the-slice-level-while-other-layers-are-required-to-have-them)
   - [Then, how should we handle it when two slices need to share the same logic?](#then-how-should-we-handle-it-when-two-slices-need-to-share-the-same-logic)
   - [What is cohesion, and what are some best practices to increase it?](#what-is-cohesion-and-what-are-some-best-practices-to-increase-it)
   - [What is coupling, and how can we effectively decrease it in our architecture?](#what-is-coupling-and-how-can-we-effectively-decrease-it-in-our-architecture)
-- [[TODO] What’s the domain?](#todo-whats-the-domain)
 - [Why should we avoid names like 'components' or 'hooks' in FSD?](#why-should-we-avoid-names-like-components-or-hooks-in-fsd)
+- [[TODO] What’s the domain?](#todo-whats-the-domain)
 
 ---
 
 # Answers
-
-## Why do the 'App' and 'Shared' layers skip the slice level, while other layers are required to have them?
-
-### Keywords
-Slice, Global, Domain
-
-### Official Answer
-> AI Annotation: 앱 전체에 걸쳐 쓰이거나, 비즈니스 색깔이 전혀 없는 전역적인(Global) 성격을 가집니다. 여기에 슬라이스를 만들면 오히려 구조가 너무 파편화되어 찾기가 더 힘들어집니다. (예: `shared/button/ui` 보다 `shared/ui/button`이 관리하기 훨씬 편함)
->
-> 나머지 레이어는 비즈니스 로직을 담고있기 때문에, 도메인 기준으로 한번 나눠야합니다.
-
-### Reference
-- [Feature-Sliced Design Official Documentation](https://feature-sliced.design/docs/get-started/overview)
-
----
 
 ## What is the slice?
 
@@ -51,6 +36,21 @@ Navigation, Modules
 
 ### Official Answer
 Slices make your codebase easier to navigate by keeping logically related modules close together.
+
+### Reference
+- [Feature-Sliced Design Official Documentation](https://feature-sliced.design/docs/get-started/overview)
+
+---
+
+## Why do the 'App' and 'Shared' layers skip the slice level, while other layers are required to have them?
+
+### Keywords
+Slice, Global, Domain
+
+### Official Answer
+> AI Annotation: 앱 전체에 걸쳐 쓰이거나, 비즈니스 색깔이 전혀 없는 전역적인(Global) 성격을 가집니다. 여기에 슬라이스를 만들면 오히려 구조가 너무 파편화되어 찾기가 더 힘들어집니다. (예: `shared/button/ui` 보다 `shared/ui/button`이 관리하기 훨씬 편함)
+>
+> 나머지 레이어는 비즈니스 로직을 담고있기 때문에, 도메인 기준으로 한번 나눠야합니다.
 
 ### Reference
 - [Feature-Sliced Design Official Documentation](https://feature-sliced.design/docs/get-started/overview)
@@ -114,15 +114,6 @@ Coupling, Dependency
 
 ---
 
-## [TODO] What’s the domain?
-### Keywords
-
-### Official Answer
-
-### Reference
-
----
-
 ## Why should we avoid names like 'components' or 'hooks' in FSD?
 ### Official Answer
 The only important thing to remember when creating new segments is that segment names should describe purpose (the why), not essence (the what).
@@ -140,3 +131,12 @@ The problem manifests itself at least in violation of the principle of High Cohe
 
 ### Reference
 - [Feature-Sliced Design Official Documentation: Desegmentation](https://feature-sliced.design/docs/guides/issues/desegmented)
+
+---
+
+## [TODO] What’s the domain?
+### Keywords
+
+### Official Answer
+
+### Reference
