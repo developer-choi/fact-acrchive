@@ -3,10 +3,9 @@ tags: [fsd, concept, slice, cohesion, coupling]
 ---
 
 # Questions
-- [What is the slice?](#what-is-the-slice)
-  - [Why should we divide a layer into multiple slices?](#why-should-we-divide-a-layer-into-multiple-slices)
-  - [Why do the 'App' and 'Shared' layers skip the slice level, while other layers are required to have them?](#why-do-the-app-and-shared-layers-skip-the-slice-level-while-other-layers-are-required-to-have-them)
-  - [Then, how should we handle it when two slices need to share the same logic?](#then-how-should-we-handle-it-when-two-slices-need-to-share-the-same-logic)
+- [What are slices in FSD, and what is their purpose?](#what-are-slices-in-fsd-and-what-is-their-purpose)
+- [Why do the 'App' and 'Shared' layers skip the slice level, while other layers are required to have them?](#why-do-the-app-and-shared-layers-skip-the-slice-level-while-other-layers-are-required-to-have-them)
+- [Then, how should we handle it when two slices need to share the same logic?](#then-how-should-we-handle-it-when-two-slices-need-to-share-the-same-logic)
   - [What is cohesion, and what are some best practices to increase it?](#what-is-cohesion-and-what-are-some-best-practices-to-increase-it)
   - [What is coupling, and how can we effectively decrease it in our architecture?](#what-is-coupling-and-how-can-we-effectively-decrease-it-in-our-architecture)
 - [Why should we avoid names like 'components' or 'hooks' in FSD?](#why-should-we-avoid-names-like-components-or-hooks-in-fsd)
@@ -16,25 +15,14 @@ tags: [fsd, concept, slice, cohesion, coupling]
 
 # Answers
 
-## What is the slice?
+## What are slices in FSD, and what is their purpose?
 
 ### Keywords
-Slice, Domain
+Slice, Independent, Navigation
 
 ### Official Answer
-Partition the code by business domain.
-
-### Reference
-- https://feature-sliced.design/docs/get-started/overview
-
----
-
-## Why should we divide a layer into multiple slices?
-
-### Keywords
-Navigation, Modules
-
-### Official Answer
+Their main purpose is to group code by its meaning for the product, business, or just the application.
+Slices are meant to be independent and highly cohesive groups of code files.
 Slices make your codebase easier to navigate by keeping logically related modules close together.
 
 ### Reference
