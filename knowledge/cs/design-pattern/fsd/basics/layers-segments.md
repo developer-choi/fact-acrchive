@@ -9,6 +9,7 @@ tags: [fsd, architecture, layers, responsibility]
   - [[TODO] What is the key difference between 'App' and 'Pages' in FSD?](#todo-what-is-the-key-difference-between-app-and-pages-in-fsd)
 - [What are segments in FSD, and what is the role of each one?](#what-are-segments-in-fsd-and-what-is-the-role-of-each-one)
 - [What is the role of the Public API in an FSD slice, and how does it support refactoring?](#what-is-the-role-of-the-public-api-in-an-fsd-slice-and-how-does-it-support-refactoring)
+- [Why should I avoid using wildcard re-exports in a public API within FSD?](#why-should-i-avoid-using-wildcard-re-exports-in-a-public-api-within-fsd)
 
 ---
 
@@ -158,4 +159,21 @@ Only the necessary parts of the slice should be exposed.
 
 ### Reference
 - https://feature-sliced.design/docs/get-started/tutorial
+- https://feature-sliced.design/docs/reference/public-api
+
+---
+
+## Why should I avoid using wildcard re-exports in a public API within FSD?
+
+### Keywords
+Wildcard Re-export, Discoverability, Interface, Encapsulation
+
+### Official Answer
+It may be tempting to create wildcard re-exports of everything, especially in early development of the slice, because any new objects you export from your files are also automatically exported from the slice:
+
+This hurts the discoverability of a slice because you can't easily tell what the interface of this slice is.
+Not knowing the interface means that you have to dig deep into the code of a slice to understand how to integrate it.
+Another problem is that you might accidentally expose the module internals, which will make refactoring difficult if someone starts depending on them.
+
+### Reference
 - https://feature-sliced.design/docs/reference/public-api
