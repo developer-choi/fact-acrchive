@@ -46,6 +46,7 @@ Reusable functionality, especially when it's detached from the specifics of the 
 
 ### Reference
 - https://feature-sliced.design/docs/get-started/overview
+- https://feature-sliced.design/docs/reference/layers
 
 ---
 
@@ -71,6 +72,7 @@ If a block of UI makes up most of the interesting content on a page, and is neve
 
 ### Reference
 - https://feature-sliced.design/docs/get-started/overview
+- https://feature-sliced.design/docs/reference/layers
 
 ---
 
@@ -87,6 +89,7 @@ Specifically for entities/ui, it is primarily meant to reuse the same appearance
 
 ### Reference
 - https://feature-sliced.design/docs/get-started/overview
+- https://feature-sliced.design/docs/reference/layers
 
 ---
 

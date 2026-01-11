@@ -53,6 +53,7 @@ Because of that, the business logic of these interactions is preferably kept in 
 
 ### Reference
 - https://feature-sliced.design/docs/get-started/overview
+- https://feature-sliced.design/docs/reference/layers
 
 ---
 
@@ -66,3 +67,6 @@ This enables freedom in refactoring code inside a slice as long as the contract 
 
 > 내 해석
 > 슬라이스나 세그먼트에서, 외부에 공개할 모듈만 따로 선택하기 위한 방법입니다.
+
+### Reference
+- https://feature-sliced.design/docs/get-started/tutorial

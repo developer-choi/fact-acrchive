@@ -131,6 +131,7 @@ The problem manifests itself at least in violation of the principle of High Cohe
 
 ### Reference
 - https://feature-sliced.design/docs/guides/issues/desegmented
+- https://feature-sliced.design/docs/get-started/tutorial
 
 ---
 
