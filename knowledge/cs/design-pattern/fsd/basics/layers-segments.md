@@ -27,6 +27,11 @@ Everything that makes the app run — routing, entrypoints, global styles, provi
 #### Pages
 Full pages or large parts of a page in nested routing.
 
+If a UI block on a page is not reused, it's perfectly fine to keep it inside the page slice.
+
+> User Annotation
+> - Entry Points.
+
 #### Widgets
 Large self-contained chunks of functionality or UI, usually delivering an entire use case.
 
