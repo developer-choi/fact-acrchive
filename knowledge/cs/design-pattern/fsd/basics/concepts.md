@@ -129,9 +129,14 @@ The only important thing to remember when creating new segments is that segment 
 
 Names like “components”, “hooks”, “modals” should not be used because they describe what these files are, but don’t help to navigate the code inside.
 
+The problem manifests itself at least in violation of the principle of High Cohesion and excessive stretching of the axis of changes.
+
 > AI Annotation:
 > 
 > **기존 방식 대비 차이점:**
 > 1. **기존 방식**: auth 하나 바꾸려면 `components/auth`, `hooks/auth` 등등 여러 폴더를 왔다갔다 해야 함. 이는 응집도(Cohesion)가 낮은 상태임. 또한 영향 범위 파악이 어려움.
 > 2. **FSD 방식**: `auth/` 하위에 `ui`, `hooks`, `api` 등이 모여 있어 응집도가 높음.
 > 3. 또한 의존성 규칙이 일정하여 수정 시 영향 범위를 쉽게 파악할 수 있음. (예: `entities/auth/ui` 수정 시 그 아래 레이어에는 영향이 없음)
+
+### Reference
+- [Feature-Sliced Design Official Documentation: Desegmentation](https://feature-sliced.design/docs/guides/issues/desegmented)
