@@ -24,6 +24,15 @@ Their purpose is to separate code based on how much responsibility it needs and 
 #### App
 Everything that makes the app run — routing, entrypoints, global styles, providers.
 
+All kinds of app-wide matters, both in the technical sense (e.g., context providers) and in the business sense (e.g., analytics).
+
+Here are the segments that you can typically find in this layer:
+
+📁 routes — the router configuration
+📁 store — global store configuration
+📁 styles — global styles
+📁 entrypoint — the entrypoint to the application code, framework-specific
+
 #### Pages
 Full pages or large parts of a page in nested routing.
 
