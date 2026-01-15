@@ -5,7 +5,7 @@ tags: [network, concept, definition]
 # Questions
 - [What’s the Network?](#whats-the-network)
   - [What's the Host?](#whats-the-host)
-  - [[TODO] What is the technical difference between a simple device and a Host?](#todo-what-is-the-technical-difference-between-a-simple-device-and-a-host)
+  - [What is the technical difference between a Node and a Host?](#todo-what-is-the-technical-difference-between-a-simple-device-and-a-host)
 
 ---
 
@@ -40,4 +40,15 @@ Hosts are assigned at least one network address.
 
 ---
 
-## [TODO] What is the technical difference between a simple device and a Host?
+## What is the technical difference between a Node and a Host?
+### Official Answer
+A network node is any device participating in a network.
+A host is a node that participates in user applications, either as a server, client, or both.
+A server is a type of host that offers resources to the other hosts.
+Typically, a server accepts connections from clients who request a service function.
+
+Every network host is a node, but not every network node is a host.
+Network infrastructure hardware, such as modems, Ethernet hubs, and network switches are not directly or actively participating in application-level functions, and do not necessarily have a network address, and are not considered to be network hosts.
+
+### Reference
+- https://en.wikipedia.org/wiki/Host_(network)
