@@ -35,6 +35,9 @@
 - `os`: 운영체제
 - `database`: DB, SQL/NoSQL
 - `auth`: 인증/인가 (OAuth, JWT)
+- `software-engineering`: 소프트웨어 공학, 개발 방법론
+- `design-pattern`: 디자인 패턴
+- `architecture`: 아키텍처, 설계 원칙
 
 ## 5. Infra & DevOps
 - `aws`: AWS Cloud
